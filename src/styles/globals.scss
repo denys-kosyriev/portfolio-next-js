@@ -27,6 +27,10 @@ body {
   min-height:     100%;
 }
 
+main {
+  flex: 1 0 auto;
+}
+
 section {
   position: relative;
   top:      0;
@@ -80,7 +84,7 @@ a {
   display: none !important;
 }
 
-button, .btn {
+.button-window, {
   min-width:        200px;
   cursor:           pointer;
   display:          inline-flex;
@@ -94,7 +98,9 @@ button, .btn {
   font-size:        16px;
   background-color: #fff;
   color:            #818181;
+  border-radius:    20px;
   transition:       .3s linear;
+  transform:        translateY(2px);
   &:hover {
     background-color: #6BC2BB;
     color:            #505050;
@@ -103,9 +109,56 @@ button, .btn {
     background-color: rgba(#6BC2BB, .6);
     border-color:     rgba(#6BC2BB, .6);
   }
+  &.active-button {
+    border-radius:    20px 20px 0 0;
+    border-color:     rgba(#6BC2BB, .8);
+    background-color: rgba(#6BC2BB, .8);
+    &:hover {
+      border-color:     #6BC2BB;
+      background-color: #6BC2BB;
+    }
+  }
+  .close {
+    height:     15px;
+    width:      15px;
+    position:   absolute;
+    top:        50%;
+    right:      15px;
+    z-index:    0;
+    transform:  translateY(-50%) rotate(90deg);
+    transition: .3s linear;
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    path {
+      fill:   #505050;
+      stroke: #505050;
+    }
+    & {
+      &:nth-of-type(1).active-close {
+        transform: translateY(-65%) rotate(90deg);
+      }
+      &:nth-of-type(2).active-close {
+        transform: translateY(-25%) rotate(269deg);
+        opacity:   1;
+      }
+    }
+  }
 }
 
-.active, .show {
+.drop-down-window {
+  max-height:    0;
+  border:        2px solid transparent;
+  border-radius: 0 20px 20px 20px;
+  transition:    .3s linear;
+  overflow:      auto;
+  padding:       0 10px;
+}
+
+.show-window {
+  max-height:   350px;
+  border-color: #6BC2BB;
+  padding:      10px;
 }
 
 .select, select {
@@ -164,6 +217,10 @@ button, .btn {
 
   a {
     font-size: 20px;
+  }
+  .button-window {
+    background-color: #6BC2BB;
+    color:            #505050;
   }
   label, input, .input, .select, select {
     max-width: 296px;

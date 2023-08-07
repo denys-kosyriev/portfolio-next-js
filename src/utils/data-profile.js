@@ -1,4 +1,4 @@
-export const dataPortfolio = {
+export const dataProfile = {
   photo: '/images/photo.jpg',
   name: 'Kosyriev Denys',
   location: 'Kyiv, Ukraine',
@@ -7,5 +7,5 @@ export const dataPortfolio = {
     'HTML5/CSS3', 'SCSS/SASS', 'React', 'Next.js', 'BEM', 'JavaScript',
     'Gulp', 'Git/GitHub', 'Adobe Photoshop', 'Figma', 'Browser Devtools', 'Wordpress',
     'TypeScript',
-  ]
+  ],
 }

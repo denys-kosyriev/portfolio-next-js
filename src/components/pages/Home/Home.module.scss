@@ -1,0 +1,15 @@
+.home {
+  overflow:       hidden;
+  padding-bottom: 20px;
+  .aboutMe {
+    &.show-window {
+      min-height: 300px;
+    }
+  }
+}
+
+@media(min-width: 568px) {
+  .home {
+
+  }
+}

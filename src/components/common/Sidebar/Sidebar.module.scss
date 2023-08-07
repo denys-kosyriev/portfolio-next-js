@@ -1,6 +1,7 @@
 .sidebar {
-  padding: 20px 0 20px;
-  .skills{}
+  padding: 20px 0 10px;
+  .skills {
+  }
   .wrapper {
     z-index:          1;
     background-color: #fff;
@@ -44,30 +45,12 @@
       }
     }
   }
-  button {
-    border-radius: 20px;
-    transform:     translateY(2px);
-    transition:    .3s linear;
-    &.active {
-      border-radius:    20px 20px 0 0;
-      border-color:     rgba(#6BC2BB, .8);
-      background-color: rgba(#6BC2BB, .8);
-    }
+  .skillsWindow {
+    max-height: 250px;
   }
   ul {
-    max-height:    0;
-    display:       flex;
-    flex-wrap:     wrap;
-    border:        2px solid transparent;
-    border-radius: 0 20px 20px 20px;
-    padding:       0 10px;
-    transition:    .3s linear, padding .3s linear;
-    overflow:      hidden;
-    &.show {
-      max-height:   250px;
-      border-color: #6BC2BB;
-      padding:      10px;
-    }
+    display:   flex;
+    flex-wrap: wrap;
   }
   li {
     margin: 0 15px;
@@ -77,44 +60,7 @@
   }
 }
 
-@media(max-width: 567px) {
-  .sidebar {
-    button {
-      &.active {
-        &:hover {
-          border-color:     #6BC2BB;
-          background-color: #6BC2BB;
-        }
-      }
-      svg {
-        height:     15px;
-        width:      15px;
-        position:   absolute;
-        top:        50%;
-        right:      15px;
-        z-index:    0;
-        transform:  translateY(-50%) rotate(90deg);
-        transition: .3s linear;
-        &:nth-of-type(2) {
-          opacity: 0;
-        }
-        path {
-          fill:   #505050;
-          stroke: #505050;
-        }
-        &:nth-of-type(1).active {
-          transform: translateY(-65%) rotate(90deg);
-        }
-        &:nth-of-type(2).active {
-          transform: translateY(-25%) rotate(269deg);
-          opacity:   1;
-        }
-      }
-    }
-  }
-}
-
-@media(min-width: 568px) {
+@media(min-width: 567px) {
   .sidebar {
     max-width: 600px;
     .photo {
@@ -122,14 +68,6 @@
       img {
         height: 140px;
         width:  140px;
-      }
-    }
-    button {
-      pointer-events:   none;
-      background-color: #6BC2BB;
-      color:            #505050;
-      svg {
-        display: none;
       }
     }
     ul {
@@ -156,7 +94,6 @@
     .info {
       display:     inline;
       padding-top: 10px;
-      //justify-content: start;
     }
     li {
       font-size: 22px;
