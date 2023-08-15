@@ -2,8 +2,15 @@
   overflow:       hidden;
   padding-bottom: 20px;
   .aboutMe {
-    &.show-window {
-      min-height: 300px;
+    padding: 0 0 20px;
+  }
+  .sites {
+    h2 {
+      margin-bottom: 10px;
+    }
+    select {
+      max-width:     300px;
+      margin-bottom: 10px;
     }
   }
 }

@@ -1,0 +1,37 @@
+export const dataSites = {
+  1: {
+    title: 'Інтернет Провайдер "Вектор"',
+    link: 'https://link for site Vector',
+    technology: 'WordPress',
+    description: [
+      "Перший скріншот - сайт до перевтілення;",
+      "Другий і третій скріншот - сайт після редизайну",
+      "Наш редизайн сайту — це свіжий подих та сучасний образ. Ми перетворимо ваш існуючий веб-сайт у вражаючий, сучасний та функціональний інтерфейс, який залучатиме та залишиться у пам\'яті відвідувачів.",
+      "Ми звернемо особливу увагу на візуальний аспект: ми покращимо дизайн, розміщення контенту та колірну палітру, щоб забезпечити приємний та захоплюючий вигляд. Адаптивний дизайн гарантуватиме, що ваш сайт виглядає і працює ідеально на будь-якому пристрої, від мобільних телефонів до настільних комп'ютерів.",
+      "Ми покращимо взаємодію з відвідувачами, розробивши зручний та логічний інтерфейс. Навігація стане більш зрозумілою, а інформація легко доступною.",
+      "Крім того, ми забезпечимо вас сучасними функціями та можливостями. Ваш сайт буде підтримувати інтерактивність, швидкість завантаження та оптимізацію для пошукових систем.\n",
+      "Наша мета — зробити ваш сайт не тільки красивим, а й ефективним інструментом для досягнення ваших цілей.",
+    ],
+    screenshot1: '/images/vector/before-design.JPG',
+    screenshot2: '/images/vector/new-design.JPG',
+    screenshot3: '/images/vector/form.JPG',
+  },
+  2: {
+    technology: 'WordPress',
+    link: 'https://link for site2',
+    title: 'Vector2',
+    description: 'eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaergeragaerg eragaerg',
+    screenshot1: '/',
+    screenshot2: '/',
+    screenshot3: '/',
+  },
+  3: {
+    technology: 'React',
+    link: 'https://link for site3',
+    title: 'Rector',
+    description: 'eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaergeragaerg eragaerg',
+    screenshot1: '/',
+    screenshot2: '/',
+    screenshot3: '/',
+  },
+}

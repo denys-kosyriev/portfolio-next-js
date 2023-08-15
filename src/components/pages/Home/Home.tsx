@@ -1,31 +1,50 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Head from "next/head";
 
-//libs
-import cn from "classnames";
+// libs
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// components
+import { BlockDropDownWindow } from "@/components/common/BlockDropDownWindow/BlockDropDownWindow";
 
 // assets
 import styles from './Home.module.scss';
 import { dataAboutMe } from "@/utils/data-about-me";
+import { dataSites } from "@/utils/data-sites";
 
-export const Home: FC = () => {
+export const Home: FC = ({ delayShowWindowF }) => {
 
-  const [activeButtonsAboutMe, setActiveButtonsAboutMe] = useState(false);
+  let arrSites = Object.values(dataSites);
+  let newArrSites = [...arrSites];
+
+  const [selectValue, setSelectValue] = useState('all');
+  const [changeArrSites, setChangeArrSites] = useState(newArrSites);
+  const [activeButtonAboutMe, setActiveButtonAboutMe] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
+  const [activeButtonDescriptionSite, setActiveButtonDescriptionSite] = useState(false);
+  const [showDescriptionSite, setShowDescriptionSite] = useState(false);
 
-  const delayShowSkills = () => {
-    if (!activeButtonsAboutMe) {
-      setActiveButtonsAboutMe(true);
-      setTimeout(() => {
-        setShowAboutMe(true);
-      }, 200)
-    } else {
-      setShowAboutMe(false);
-      setTimeout(() => {
-        setActiveButtonsAboutMe(false);
-      }, 200)
-    }
-  }
+  useEffect(() => {
+    newArrSites.length = 0;
+    arrSites.map(site => {
+      if (selectValue === site.technology || selectValue === 'all') {
+        newArrSites.push(site)
+        setChangeArrSites(newArrSites)
+      }
+    })
+  }, [selectValue])
+
+  let arrTech = [];
+
+  arrSites.map(site => {
+    arrTech = [...arrTech, site.technology];
+  })
+  const setTech = new Set(arrTech);
+  arrTech = Array.from(setTech);
 
   return (
     <>
@@ -35,35 +54,83 @@ export const Home: FC = () => {
       <main className={styles.home}>
         <section className={styles.aboutMe}>
           <div className='container'>
-            <div className={styles.aboutMe}>
-              <button
-                className={cn('p-relative', 'button-window', activeButtonsAboutMe ? 'active-button' : undefined)}
-                onClick={() => {
-                  delayShowSkills()
-                }}
-              >
-                About me
-                <svg className={cn('close', activeButtonsAboutMe ? 'active-close' : undefined)} width="25" height="24"
-                     viewBox="0 0 25 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M7.45888 24L6.04688 22.588L15.9279 12.707C16.1153 12.5195 16.2207 12.2652 16.2207 12C16.2207 11.7349 16.1153 11.4806 15.9279 11.293L6.06388 1.43103L7.47788 0.0170288L17.3399 9.87903C17.9023 10.4416 18.2182 11.2045 18.2182 12C18.2182 12.7955 17.9023 13.5584 17.3399 14.121L7.45888 24Z"
-                    fill="#03BF6A"></path>
-                </svg>
-                <svg className={cn('close', activeButtonsAboutMe ? 'active-close' : undefined)} width="25" height="24"
-                     viewBox="0 0 25 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M7.45888 24L6.04688 22.588L15.9279 12.707C16.1153 12.5195 16.2207 12.2652 16.2207 12C16.2207 11.7349 16.1153 11.4806 15.9279 11.293L6.06388 1.43103L7.47788 0.0170288L17.3399 9.87903C17.9023 10.4416 18.2182 11.2045 18.2182 12C18.2182 12.7955 17.9023 13.5584 17.3399 14.121L7.45888 24Z"
-                    fill="#03BF6A"></path>
-                </svg>
-              </button>
-              <p className={cn('drop-down-window', showAboutMe ? 'show-window' : undefined)}>
-                {dataAboutMe.aboutMe}
-              </p>
-            </div>
+            <BlockDropDownWindow
+              titleButton='Про мене'
+              componentClass='aboutMe'
+              activeButton={activeButtonAboutMe}
+              setActiveButton={setActiveButtonAboutMe}
+              showWindow={showAboutMe}
+              setShowWindow={setShowAboutMe}
+              delayShowWindowF={delayShowWindowF}
+            >
+              <p>{dataAboutMe.aboutMe}</p>
+            </BlockDropDownWindow>
+          </div>
+        </section>
+        <section className={styles.sites}>
+          <div className='container'>
+            <h2>Мої роботи</h2>
+            <h3>Вибрати технологію</h3>
+            <select
+              name='sites'
+              id='sites'
+              onChange={(e) => setSelectValue(e.target.value)}
+            >
+              <option value='all'>Все разом</option>
+              {arrTech.map((tech, index) => (
+                <option
+                  value={tech}
+                  key={index}
+                >
+                  {tech}
+                </option>
+              ))}
+            </select>
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              className='slider-sites'
+            >
+              {changeArrSites.map((site, index) => (
+                <SwiperSlide key={index}>
+                  <h2>{site.title}</h2>
+                  <div className='technology'>
+                    <p>Технологія:</p>
+                    <p>{site.technology}</p>
+                  </div>
+                  <a href={site.link}>Посилання на сайт</a>
+                  <BlockDropDownWindow
+                    titleButton='Опис'
+                    componentClass='aboutMe'
+                    activeButton={activeButtonDescriptionSite}
+                    setActiveButton={setActiveButtonDescriptionSite}
+                    showWindow={showDescriptionSite}
+                    setShowWindow={setShowDescriptionSite}
+                    delayShowWindowF={delayShowWindowF}
+                  >
+                    {[site.description].map((paragraph, index) => (
+                      <p key={index}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </BlockDropDownWindow>
+                  <div className='screenshots'>
+                    <div className='left'>
+                      <div className='screenshot'>
+                        <img src={site.screenshot1} alt='' />
+                      </div>
+                      <div className='screenshot'>
+                        <img src={site.screenshot2} alt='' />
+                      </div>
+                    </div>
+                    <div className='screenshot'>
+                      <img src={site.screenshot3} alt='' />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </section>
       </main>

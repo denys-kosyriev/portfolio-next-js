@@ -35,8 +35,8 @@ export const Sidebar: FC = () => {
               <img src={dataProfile.photo} alt='' />
             </div>
             <div className={styles.info}>
-              <h1>{dataProfile.name}</h1>
-              <h2>{dataProfile.profession}</h2>
+              <h2>{dataProfile.name}</h2>
+              <h3>{dataProfile.profession}</h3>
               <div className={styles.location}>
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 14 14" role="img">
                   <path
