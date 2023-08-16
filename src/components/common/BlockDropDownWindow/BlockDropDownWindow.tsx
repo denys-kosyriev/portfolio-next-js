@@ -1,19 +1,22 @@
+import { FC } from 'react';
+
+
 // libs
 import cn from "classnames";
 
 // assets
 import styles from "./BlockDropDownWindow.module.scss";
 
-export const BlockDropDownWindow = ({
-                                      titleButton,
-                                      componentClass,
-                                      activeButton,
-                                      setActiveButton,
-                                      showWindow,
-                                      setShowWindow,
-                                      delayShowWindowF,
-                                      children
-                                    }) => {
+export const BlockDropDownWindow: FC = ({
+                                          titleButton,
+                                          componentClass,
+                                          activeButton,
+                                          setActiveButton,
+                                          showWindow,
+                                          setShowWindow,
+                                          delayShowWindowF,
+                                          children
+                                        }) => {
   return (
     <div
       className={cn(styles.blockDropDownWindow, styles[componentClass])}
