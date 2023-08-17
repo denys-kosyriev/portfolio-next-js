@@ -1,3 +1,4 @@
+import React from 'react';
 
 // libs
 import cn from "classnames";
@@ -5,24 +6,32 @@ import cn from "classnames";
 // assets
 import styles from "./BlockDropDownWindow.module.scss";
 
-export const BlockDropDownWindow = ({
+interface BlockDropDownWindowProps {
+  titleButton: string;
+  componentClass: string;
+  activeButton: boolean;
+  setActiveButton: React.Dispatch<React.SetStateAction<boolean>>;
+  showWindow: boolean;
+  setShowWindow: React.Dispatch<React.SetStateAction<boolean>>;
+  delayShowWindowF: (
+    active: boolean,
+    setActive: React.Dispatch<React.SetStateAction<boolean>>,
+    setShow: React.Dispatch<React.SetStateAction<boolean>>
+  ) => boolean;
+  children: React.ReactNode;
+}
+
+export const BlockDropDownWindow: React.FC<BlockDropDownWindowProps> = ({
                                       titleButton,
                                       componentClass,
                                       activeButton,
                                       setActiveButton,
                                       showWindow,
-                                      // setShowWindow,
-                                      // delayShowWindowF,
+                                      setShowWindow,
+                                      delayShowWindowF,
                                       children
-                                    }: {
-  titleButton: string;
-  componentClass: string;
-  activeButton: boolean;
-  // setActiveButton: boolean;
-  showWindow: boolean;
-  setShowWindow: boolean;
-  // delayShowWindowF: boolean;
-}) => {
+
+                                    }) => {
   return (
     <div
       className={cn(styles.blockDropDownWindow, styles[componentClass])}
@@ -30,13 +39,11 @@ export const BlockDropDownWindow = ({
       <button
         className={cn('p-relative', styles.buttonOpenWindow, activeButton ? styles.activeButton : undefined)}
         onClick={() =>
-          setActiveButton(false)
-          // console.log('f')
-          // delayShowWindowF(
-          //   activeButton,
-          //   setActiveButton,
-          //   setShowWindow,
-          // )
+          delayShowWindowF(
+            activeButton,
+            setActiveButton,
+            setShowWindow,
+          )
         }
       >
         {titleButton}
