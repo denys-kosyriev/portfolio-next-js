@@ -14,7 +14,10 @@ export const BlockDropDownWindow = ({
                                       setShowWindow,
                                       delayShowWindowF,
                                       children
-                                    }: { titleButton: string }) => {
+                                    }: {
+  titleButton: string;
+  componentClass: string;
+}) => {
   return (
     <div
       className={cn(styles.blockDropDownWindow, styles[componentClass])}
