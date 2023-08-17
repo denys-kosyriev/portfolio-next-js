@@ -17,7 +17,7 @@ interface BlockDropDownWindowProps {
     active: boolean,
     setActive: React.Dispatch<React.SetStateAction<boolean>>,
     setShow: React.Dispatch<React.SetStateAction<boolean>>
-  ) => boolean;
+  ) => void;
   children: React.ReactNode;
 }
 

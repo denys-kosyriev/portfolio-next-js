@@ -1,3 +1,5 @@
+import React from 'react';
+
 // components
 import { Home } from "@/components/pages/Home/Home";
 import { Sidebar } from "@/components/common/Sidebar/Sidebar";
@@ -5,9 +7,9 @@ import { Sidebar } from "@/components/common/Sidebar/Sidebar";
 export default function HomePage() {
 
   const delayShowWindow = (
-    activeButton,
-    setActiveButton,
-    setShowWindow,
+    activeButton: boolean,
+    setActiveButton: React.Dispatch<React.SetStateAction<boolean>>,
+    setShowWindow: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     if (!activeButton) {
       setActiveButton(true);

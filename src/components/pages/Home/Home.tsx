@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Head from "next/head";
 
 // libs
@@ -16,7 +16,15 @@ import styles from './Home.module.scss';
 import { dataAboutMe } from "@/utils/data-about-me";
 import { dataSites } from "@/utils/data-sites";
 
-export const Home: FC = ({ delayShowWindowF }) => {
+interface HomeProps {
+  delayShowWindowF: (
+    activeButton: boolean,
+    setActiveButton: React.Dispatch<React.SetStateAction<boolean>>,
+    setShowWindow: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+}
+
+export const Home: FC<HomeProps> = ({ delayShowWindowF }) => {
 
   let arrSites = Object.values(dataSites);
   let newArrSites = [...arrSites];
