@@ -26,7 +26,7 @@ export default function HomePage() {
 
   return <>
     <Sidebar
-      delayShowWindowF={delayShowWindow}
+      // delayShowWindowF={delayShowWindow}
     />
     <Home
       delayShowWindowF={delayShowWindow}
