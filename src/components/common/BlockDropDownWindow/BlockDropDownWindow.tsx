@@ -11,12 +11,17 @@ export const BlockDropDownWindow = ({
                                       activeButton,
                                       setActiveButton,
                                       showWindow,
-                                      setShowWindow,
-                                      delayShowWindowF,
+                                      // setShowWindow,
+                                      // delayShowWindowF,
                                       children
                                     }: {
   titleButton: string;
   componentClass: string;
+  activeButton: boolean;
+  // setActiveButton: boolean;
+  showWindow: boolean;
+  setShowWindow: boolean;
+  // delayShowWindowF: boolean;
 }) => {
   return (
     <div
@@ -25,11 +30,13 @@ export const BlockDropDownWindow = ({
       <button
         className={cn('p-relative', styles.buttonOpenWindow, activeButton ? styles.activeButton : undefined)}
         onClick={() =>
-          delayShowWindowF(
-            activeButton,
-            setActiveButton,
-            setShowWindow,
-          )
+          setActiveButton(false)
+          // console.log('f')
+          // delayShowWindowF(
+          //   activeButton,
+          //   setActiveButton,
+          //   setShowWindow,
+          // )
         }
       >
         {titleButton}
