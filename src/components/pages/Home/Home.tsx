@@ -46,13 +46,14 @@ export const Home: FC<HomeProps> = ({ delayShowWindowF }) => {
     })
   }, [selectValue])
 
-  let arrTech = [];
+  const arrTech: string[] = [];
 
   arrSites.map(site => {
-    arrTech = [...arrTech, site.technology];
-  })
-  const setTech = new Set(arrTech);
-  arrTech = Array.from(setTech);
+    arrTech.push(site.technology);
+  });
+
+  const setTech: Set<string> = new Set(arrTech);
+  const arrTechUnique: string[] = Array.from(setTech);
 
   return (
     <>
@@ -83,9 +84,10 @@ export const Home: FC<HomeProps> = ({ delayShowWindowF }) => {
               name='sites'
               id='sites'
               onChange={(e) => setSelectValue(e.target.value)}
+              value={selectValue}
             >
               <option value='all'>Все разом</option>
-              {arrTech.map((tech, index) => (
+              {arrTechUnique.map((tech, index) => (
                 <option
                   value={tech}
                   key={index}
