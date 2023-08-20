@@ -19,10 +19,32 @@
       gap:             20px;
       text-align:      center;
     }
-    .screenshot {
+    a {
+      &:hover {
+        .screenshot {
+          border-radius: 20px;
+          border-color:  #6BC2BB;
+        }
+        h3 {
+          color: #6BC2BB;
+        }
+      }
+      &:active {
+        .screenshot {
+          opacity: .7;
+        }
+      }
+      .screenshot {
+        border:     2px solid transparent;
+        overflow:   hidden;
+        transition: .2s linear;
+      }
       img {
         height:     90vw;
         object-fit: cover;
+      }
+      h3 {
+        transition: .2s linear;
       }
     }
   }
@@ -36,7 +58,7 @@
           width: 48%;
         }
       }
-      .screenshot {
+      a {
         img {
           height: 43vw;
         }
@@ -53,7 +75,7 @@
           width: 31%;
         }
       }
-      .screenshot {
+      a {
         img {
           height: 27vw;
         }
@@ -69,7 +91,7 @@
       padding: 0 0 15px;
     }
     .sites {
-      .screenshot {
+      a {
         img {
           height: 240px;
         }
