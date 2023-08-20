@@ -24,12 +24,12 @@ export default function HomePage() {
     }
   }
 
-  return <>
+  return <div className='container'>
     <Sidebar
       // delayShowWindowF={delayShowWindow}
     />
     <Home
       delayShowWindowF={delayShowWindow}
     />
-  </>
+  </div>
 }

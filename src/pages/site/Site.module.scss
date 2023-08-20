@@ -1,0 +1,64 @@
+.site {
+  padding: 20px 0 30px;
+  .descriptionSite {
+    .backButton {
+      height:           30px;
+      width:            30px;
+      border-radius:    100%;
+      background-color: #6BC2BB;
+      margin-bottom:    20px;
+      display:          flex;
+      align-items:      center;
+      justify-content:  center;
+      cursor:           pointer;
+      &:hover {
+        div {
+          transform: translateX(-9%);
+        }
+      }
+      &:active {
+        background-color: #4f9d96;
+        div {
+          background-color: #d1d1d1;
+          &::after, &::before {
+            background-color: #d1d1d1;
+          }
+        }
+      }
+      div {
+        height:           2px;
+        width:            60%;
+        background-color: #fff;
+        border-radius:    20px;
+        transform:        translateX(9%);
+        transition:       .2s linear;
+        &::after, &::before {
+          content:          '';
+          display:          block;
+          width:            45%;
+          height:           2px;
+          background-color: #fff;
+          border-radius:    20px;
+          transition:       .2s linear;
+        }
+        &::before {
+          transform: rotate(-45deg) translate(11%, -105%);
+        }
+        &::after {
+          transform: rotate(45deg) translate(-2%, 43%);
+        }
+      }
+    }
+    p {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .imagesSite {
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}

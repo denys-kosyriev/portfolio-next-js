@@ -2,7 +2,7 @@
   overflow:       hidden;
   padding-bottom: 20px;
   .aboutMe {
-    padding: 0 0 20px;
+    padding: 0 0 10px;
   }
   .sites {
     h2 {
@@ -10,13 +10,70 @@
     }
     select {
       max-width:     300px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+    }
+    .sitesLinks {
+      display:         flex;
+      justify-content: space-between;
+      flex-wrap:       wrap;
+      gap:             20px;
+      text-align:      center;
+    }
+    .screenshot {
+      img {
+        height:     90vw;
+        object-fit: cover;
+      }
     }
   }
 }
 
-@media(min-width: 568px) {
+@media(min-width: 567px) {
   .home {
+    .sites {
+      .sitesLinks {
+        li {
+          width: 48%;
+        }
+      }
+      .screenshot {
+        img {
+          height: 43vw;
+        }
+      }
+    }
+  }
+}
 
+@media(min-width: 768px) {
+  .home {
+    .sites {
+      .sitesLinks {
+        li {
+          width: 31%;
+        }
+      }
+      .screenshot {
+        img {
+          height: 27vw;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: 1024px) {
+  .home {
+    margin-left: 25%;
+    .aboutMe {
+      padding: 0 0 15px;
+    }
+    .sites {
+      .screenshot {
+        img {
+          height: 240px;
+        }
+      }
+    }
   }
 }

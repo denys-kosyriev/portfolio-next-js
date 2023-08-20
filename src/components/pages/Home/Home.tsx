@@ -1,12 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import Head from "next/head";
-
-// libs
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from "swiper/modules";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Link from "next/link";
 
 // components
 import { BlockDropDownWindow } from "@/components/common/BlockDropDownWindow/BlockDropDownWindow";
@@ -33,8 +27,6 @@ export const Home: FC<HomeProps> = ({ delayShowWindowF }) => {
   const [changeArrSites, setChangeArrSites] = useState(newArrSites);
   const [activeButtonAboutMe, setActiveButtonAboutMe] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
-  const [activeButtonDescriptionSite, setActiveButtonDescriptionSite] = useState(false);
-  const [showDescriptionSite, setShowDescriptionSite] = useState(false);
 
   useEffect(() => {
     newArrSites.length = 0;
@@ -96,51 +88,20 @@ export const Home: FC<HomeProps> = ({ delayShowWindowF }) => {
                 </option>
               ))}
             </select>
-            <Swiper
-              modules={[Navigation, Pagination]}
-              spaceBetween={30}
-              slidesPerView={1}
-              className='slider-sites'
-            >
+            <ul className={styles.sitesLinks}>
               {changeArrSites.map((site, index) => (
-                <SwiperSlide key={index}>
-                  <h2>{site.title}</h2>
-                  <div className='technology'>
-                    <p>Технологія:</p>
-                    <p>{site.technology}</p>
-                  </div>
-                  <a href={site.link}>Посилання на сайт</a>
-                  <BlockDropDownWindow
-                    titleButton='Опис'
-                    componentClass='aboutMe'
-                    activeButton={activeButtonDescriptionSite}
-                    setActiveButton={setActiveButtonDescriptionSite}
-                    showWindow={showDescriptionSite}
-                    setShowWindow={setShowDescriptionSite}
-                    delayShowWindowF={delayShowWindowF}
-                  >
-                    {[site.description].map((paragraph, index) => (
-                      <p key={index}>
-                        {paragraph}
-                      </p>
-                    ))}
-                  </BlockDropDownWindow>
-                  <div className='screenshots'>
-                    <div className='left'>
-                      <div className='screenshot'>
-                        <img src={site.screenshot1} alt='' />
-                      </div>
-                      <div className='screenshot'>
-                        <img src={site.screenshot2} alt='' />
-                      </div>
+                <li key={index}>
+                  <Link href={`site/${site.url}`}>
+                    <div className={styles.screenshot}>
+                      <img src={site.externalScreenshot} alt='' />
                     </div>
-                    <div className='screenshot'>
-                      <img src={site.screenshot3} alt='' />
-                    </div>
-                  </div>
-                </SwiperSlide>
+                    <h3>
+                      {site.title}
+                    </h3>
+                  </Link>
+                </li>
               ))}
-            </Swiper>
+            </ul>
           </div>
         </section>
       </main>
