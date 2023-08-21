@@ -65,15 +65,20 @@
     border:         2px solid transparent;
     border-radius:  0 20px 20px 20px;
     transition:     .3s linear;
-    overflow:       auto;
     padding:        0 10px;
+    overflow:       hidden;
     display:        flex;
     flex-direction: column;
     gap:            10px;
   }
   .showWindow {
-    max-height:   350px;
+    max-height:   450px;
     border-color: #6BC2BB;
     padding:      10px;
+  }
+  &.aboutMe {
+    .dropDownWindow {
+      overflow: auto;
+    }
   }
 }
