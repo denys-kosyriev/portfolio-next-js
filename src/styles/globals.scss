@@ -68,9 +68,16 @@ a {
 
 .container {
   width:     100%;
-  max-width: 1100px;
+  max-width: 1200px;
   padding:   0 20px;
   margin:    0 auto;
+}
+
+.wrapper {
+  position: relative;
+  top:      0;
+  left:     0;
+  z-index:  0;
 }
 
 .d-none {

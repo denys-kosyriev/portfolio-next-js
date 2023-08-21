@@ -25,11 +25,13 @@ export default function HomePage() {
   }
 
   return <div className='container'>
-    <Sidebar
-      // delayShowWindowF={delayShowWindow}
-    />
-    <Home
-      delayShowWindowF={delayShowWindow}
-    />
+    <div className='wrapper'>
+      <Sidebar
+        delayShowWindowF={delayShowWindow}
+      />
+      <Home
+        delayShowWindowF={delayShowWindow}
+      />
+    </div>
   </div>
 }

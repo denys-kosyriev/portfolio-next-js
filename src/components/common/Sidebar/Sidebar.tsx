@@ -3,28 +3,25 @@ import React, { FC, useState } from "react";
 // libs
 import cn from "classnames";
 
+// components
+import { BlockDropDownWindow } from "@/components/common/BlockDropDownWindow/BlockDropDownWindow";
+
 // assets
 import styles from "./Sidebar.module.scss";
 import { dataProfile } from "@/utils/data-profile";
 
-export const Sidebar: FC = () => {
+interface SidebarProps {
+  delayShowWindowF: (
+    activeButton: boolean,
+    setActiveButton: React.Dispatch<React.SetStateAction<boolean>>,
+    setShowWindow: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+}
 
-  const [activeButtonsSkills, setActiveButtonsSkills] = useState(false);
+export const Sidebar: FC<SidebarProps> = ({ delayShowWindowF }) => {
+
+  const [activeButtonSkills, setActiveButtonSkills] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
-
-  const delayShowSkills = () => {
-    if (!activeButtonsSkills) {
-      setActiveButtonsSkills(true);
-      setTimeout(() => {
-        setShowSkills(true);
-      }, 200)
-    } else {
-      setShowSkills(false);
-      setTimeout(() => {
-        setActiveButtonsSkills(false);
-      }, 200)
-    }
-  }
 
   return (
     <aside className={cn(styles.sidebar, 'p-relative')}>
@@ -46,38 +43,31 @@ export const Sidebar: FC = () => {
               </div>
             </div>
           </div>
-          <div className={styles.skills}>
-            <button
-              className={cn('p-relative', 'button-window', activeButtonsSkills ? 'active-button' : undefined)}
-              onClick={() => {
-                delayShowSkills()
-              }}
-            >
-              My Skills
-              <svg className={cn('close', activeButtonsSkills ? 'active-close' : undefined)} width="25" height="24"
-                   viewBox="0 0 25 24"
-                   fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7.45888 24L6.04688 22.588L15.9279 12.707C16.1153 12.5195 16.2207 12.2652 16.2207 12C16.2207 11.7349 16.1153 11.4806 15.9279 11.293L6.06388 1.43103L7.47788 0.0170288L17.3399 9.87903C17.9023 10.4416 18.2182 11.2045 18.2182 12C18.2182 12.7955 17.9023 13.5584 17.3399 14.121L7.45888 24Z"
-                  fill="#03BF6A"></path>
-              </svg>
-              <svg className={cn('close', activeButtonsSkills ? 'active-close' : undefined)} width="25" height="24"
-                   viewBox="0 0 25 24"
-                   fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7.45888 24L6.04688 22.588L15.9279 12.707C16.1153 12.5195 16.2207 12.2652 16.2207 12C16.2207 11.7349 16.1153 11.4806 15.9279 11.293L6.06388 1.43103L7.47788 0.0170288L17.3399 9.87903C17.9023 10.4416 18.2182 11.2045 18.2182 12C18.2182 12.7955 17.9023 13.5584 17.3399 14.121L7.45888 24Z"
-                  fill="#03BF6A"></path>
-              </svg>
-            </button>
-            <ul className={cn('drop-down-window', showSkills ? ['show-window', styles.skillsWindow] : undefined)}>
-              {dataProfile.skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
+          <div className={styles.creationSites}>
+            <h3>Розробка сайтів:</h3>
+            <ul>
+              <li>Сайт під ключ</li>
+              <li>Інтернет-магазин</li>
+              <li>Лендінг</li>
+              <li>Блог/Візитівка/Портфоліо</li>
             </ul>
           </div>
         </div>
+        <BlockDropDownWindow
+          titleButton='Мої навики'
+          componentClass='skills'
+          activeButton={activeButtonSkills}
+          setActiveButton={setActiveButtonSkills}
+          showWindow={showSkills}
+          setShowWindow={setShowSkills}
+          delayShowWindowF={delayShowWindowF}
+        >
+          <ul>
+            {dataProfile.skills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </BlockDropDownWindow>
       </div>
     </aside>
   )

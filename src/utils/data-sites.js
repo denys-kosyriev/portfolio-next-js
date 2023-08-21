@@ -46,4 +46,17 @@ export const dataSites = {
       '/images/vector/form.JPG',
     ],
   },
+  4: {
+    title: 'Rector',
+    url: 'rector',
+    link: 'https://link for site3',
+    technology: 'React',
+    description: ['eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaerg eragaerg eragaerg eragaerg eragaerg eragaerg eragaerg vv eragaergeragaerg eragaergeragaergeragaerg eragaerg'],
+    externalScreenshot: './images/vector/main.JPG',
+    screenshotsIn: [
+      '/images/vector/old-design.JPG',
+      '/images/vector/new-design.JPG',
+      '/images/vector/form.JPG',
+    ],
+  },
 }

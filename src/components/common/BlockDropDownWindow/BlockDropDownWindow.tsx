@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // libs
 import cn from "classnames";
@@ -21,17 +21,26 @@ interface BlockDropDownWindowProps {
   children: React.ReactNode;
 }
 
-export const BlockDropDownWindow: React.FC<BlockDropDownWindowProps> = ({
-                                      titleButton,
-                                      componentClass,
-                                      activeButton,
-                                      setActiveButton,
-                                      showWindow,
-                                      setShowWindow,
-                                      delayShowWindowF,
-                                      children
 
-                                    }) => {
+export const BlockDropDownWindow: React.FC<BlockDropDownWindowProps> = ({
+                                                                          titleButton,
+                                                                          componentClass,
+                                                                          activeButton,
+                                                                          setActiveButton,
+                                                                          showWindow,
+                                                                          setShowWindow,
+                                                                          delayShowWindowF,
+                                                                          children
+
+                                                                        }) => {
+
+  useEffect(() => {
+    if (innerWidth > 1023) {
+      setActiveButton(true);
+      setShowWindow(true)
+    }
+  }, [])
+
   return (
     <div
       className={cn(styles.blockDropDownWindow, styles[componentClass])}
