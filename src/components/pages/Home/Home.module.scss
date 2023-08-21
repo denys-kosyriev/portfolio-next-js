@@ -13,11 +13,10 @@
       margin-bottom: 15px;
     }
     .sitesLinks {
-      display:         flex;
-      justify-content: space-between;
-      flex-wrap:       wrap;
-      gap:             20px;
-      text-align:      center;
+      display:    flex;
+      flex-wrap:  wrap;
+      gap:        20px;
+      text-align: center;
     }
     a {
       &:hover {
@@ -55,7 +54,7 @@
     .sites {
       .sitesLinks {
         li {
-          width: 48%;
+          width: 47%;
         }
       }
       a {
